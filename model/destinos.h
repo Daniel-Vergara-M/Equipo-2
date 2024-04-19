@@ -1,5 +1,5 @@
+#include <list>
 #include "actividades.h"
-#include <set>
 
 class destinos : actividades
 {
@@ -9,7 +9,7 @@ private:
     string nombre_destino;
     string fecha_ida;
     string fecha_regreso;
-    set<actividades> actividades_array;
+    list<actividades> actividades_array;
 
 public:
     destinos() {}
@@ -54,12 +54,12 @@ public:
         return fecha_regreso;
     }
 
-    void setActividades_array(set<actividades> newActividades)
+    void setActividades_array(list<actividades> newActividades)
     {
         actividades_array = newActividades;
     }
 
-    set<actividades> getActividades_array()
+    list<actividades> getActividades_array()
     {
         return actividades_array;
     }
