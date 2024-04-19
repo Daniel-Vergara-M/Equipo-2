@@ -5,7 +5,7 @@ class viaje : destinos
 
 private:
     int id_viaje;
-    set<destinos> destinos_array;
+    list<destinos> destinos_array;
 
 public:
     viaje() {}
@@ -20,12 +20,12 @@ public:
         return id_viaje;
     }
 
-    void setDestinos_array(set<destinos> newDestinos)
+    void setDestinos_array(list<destinos> newDestinos)
     {
         destinos_array = newDestinos;
     }
 
-    set<destinos> getDestinos_array()
+    list<destinos> getDestinos_array()
     {
         return destinos_array;
     }

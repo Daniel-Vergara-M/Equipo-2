@@ -4,19 +4,20 @@ class persona : viaje
 {
 
 private:
-    int id_persona;
+    int long long id_persona;
     string nombre_persona;
-    set<viaje> viajes_array;
+    list<viaje> viajes_array;
 
 public:
     persona() {}
+    persona(string nombre_persona) : nombre_persona(nombre_persona) {}
 
-    int getId_persona()
+    int long long getId_persona()
     {
         return id_persona;
     }
 
-    void setId_persona(int value)
+    void setId_persona(int long long value)
     {
         id_persona = value;
     }
@@ -31,12 +32,12 @@ public:
         nombre_persona = value;
     }
 
-    set<viaje> getViajes_array()
+    list<viaje> getViajes_array()
     {
         return viajes_array;
     }
 
-    void setViajes_array(set<viaje> value)
+    void setViajes_array(list<viaje> value)
     {
         viajes_array = value;
     }
