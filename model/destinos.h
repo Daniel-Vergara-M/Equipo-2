@@ -1,7 +1,7 @@
 #include <list>
 #include "actividades.h"
 
-class destinos : actividades
+class destinos : public actividades
 {
 
 private:
@@ -24,9 +24,9 @@ public:
         return id_Destino;
     }
 
-    void setNombre_destino(string newNombre)
+    void setNombre_destino(const string &nombre_destino)
     {
-        nombre_destino = newNombre;
+        this->nombre_destino = nombre_destino;
     }
 
     string getNombre_destino()

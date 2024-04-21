@@ -1,6 +1,6 @@
 #include "viaje.h"
 
-class persona : viaje
+class persona : public viaje
 {
 
 private:

@@ -1,6 +1,6 @@
 #include "destinos.h"
 
-class viaje : destinos
+class viaje : public destinos
 {
 
 private:

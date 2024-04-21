@@ -3,7 +3,6 @@
 #include <map>
 #include <algorithm>
 
-#include "../model/destinos.h"
 #include "../model/persona.h"
 
 // set<persona> people;
@@ -28,9 +27,13 @@ void crear_viaje(persona &persona)
     cout << "Ingrese el nombre del destino: ";
     cin >> nombre_destino;
     newViaje.setNombre_destino(nombre_destino);
-
-
-
+    cout << "Ingrese la fecha de ida (DD-MM-YYYY): ";
+    cin >> fecha_ida;
+    newViaje.setFecha_ida(fecha_ida);
+    cout << "Ingrese la fecha de regreso (DD-MM-YYYY): ";
+    cin >> fecha_regreso;
+    newViaje.setFecha_regreso(fecha_regreso);
+    
 };
 
 /*
