@@ -41,4 +41,14 @@ public:
     {
         viajes_array = value;
     }
+
+    void addViaje(viaje value)
+    {
+        viajes_array.push_back(value);
+    }
+
+    void removeViaje(viaje value)
+    {
+        viajes_array.remove(value);
+    }
 };
