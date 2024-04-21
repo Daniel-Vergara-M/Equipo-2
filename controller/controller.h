@@ -13,27 +13,33 @@ list<viaje> trips;
 
 void crear_viaje(persona &persona)
 {
+    int cantidadViajes;
+    cout << "Cuantos viajes desea crear: ";
+    cin >> cantidadViajes;
 
-    viaje newViaje;
-    
-    int id = rand() % 1000 + 1;
+    for (int i = 0; i < cantidadViajes + 1; i++)
+    {
+        viaje newViaje;
+        int id = rand() % 1000 + 1;
+        newViaje.setId_viaje(id);
 
-    newViaje.setId_viaje(id);
+        string nombre_destino;
+        string fecha_ida;
+        string fecha_regreso;
 
-    string nombre_destino;
-    string fecha_ida;
-    string fecha_regreso;
+        cout << "Ingrese el nombre del destino: ";
+        cin >> nombre_destino;
+        newViaje.setNombre_destino(nombre_destino);
+        cout << "Ingrese la fecha de ida (DD-MM-YYYY): ";
+        cin >> fecha_ida;
+        newViaje.setFecha_ida(fecha_ida);
+        cout << "Ingrese la fecha de regreso (DD-MM-YYYY): ";
+        cin >> fecha_regreso;
+        newViaje.setFecha_regreso(fecha_regreso);
 
-    cout << "Ingrese el nombre del destino: ";
-    cin >> nombre_destino;
-    newViaje.setNombre_destino(nombre_destino);
-    cout << "Ingrese la fecha de ida (DD-MM-YYYY): ";
-    cin >> fecha_ida;
-    newViaje.setFecha_ida(fecha_ida);
-    cout << "Ingrese la fecha de regreso (DD-MM-YYYY): ";
-    cin >> fecha_regreso;
-    newViaje.setFecha_regreso(fecha_regreso);
-    
+        trips.push_back(newViaje);
+    }
+    persona.setViajes_array(trips);
 };
 
 /*
