@@ -10,7 +10,7 @@ private:
 
 public:
     persona() {}
-    persona(string nombre_persona) : nombre_persona(nombre_persona) {}
+   // persona(string nombre_persona) : nombre_persona(nombre_persona) {}
 
     int long long getId_persona()
     {
@@ -42,13 +42,4 @@ public:
         viajes_array = value;
     }
 
-    void addViaje(viaje value)
-    {
-        viajes_array.push_back(value);
-    }
-
-    void removeViaje(viaje value)
-    {
-        viajes_array.remove(value);
-    }
 };

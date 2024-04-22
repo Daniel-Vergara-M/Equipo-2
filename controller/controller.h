@@ -9,37 +9,112 @@
 
 list<persona> people;
 list<viaje> trips;
+list<destinos> destiny;
 // map<persona, viaje> peopleTrips;
 
-void crear_viaje(persona &persona)
+void crear_viaje(persona &pp)
 {
-    int cantidadViajes;
-    cout << "Cuantos viajes desea crear: ";
-    cin >> cantidadViajes;
 
-    for (int i = 0; i < cantidadViajes + 1; i++)
+    viaje newViaje;
+    int id = rand() % 1000 + 1;
+    newViaje.setId_viaje(id);
+
+    list<actividades> lista_act_aux;
+    list<destinos> lista_act_dest;
+    list<viaje> lista_Act_viaje;
+
+    //-------------------------------------------------------------------- destinos
+
+    int y = 1;
+    destinos aux_des;
+
+    while ((y = 1))
     {
-        viaje newViaje;
-        int id = rand() % 1000 + 1;
-        newViaje.setId_viaje(id);
 
-        string nombre_destino;
-        string fecha_ida;
-        string fecha_regreso;
+        int id_destino = rand() % 1000 + 1;
+        string nombre_lugar;
+        string ida;
+        string regreso;
 
-        cout << "Ingrese el nombre del destino: ";
-        cin >> nombre_destino;
-        newViaje.setNombre_destino(nombre_destino);
-        cout << "Ingrese la fecha de ida (DD-MM-YYYY): ";
-        cin >> fecha_ida;
-        newViaje.setFecha_ida(fecha_ida);
-        cout << "Ingrese la fecha de regreso (DD-MM-YYYY): ";
-        cin >> fecha_regreso;
-        newViaje.setFecha_regreso(fecha_regreso);
+        cout << "digita nombre del destino : ";
+        cin >> nombre_lugar;
 
-        trips.push_back(newViaje);
+        for (destinos &d : destiny)
+        {
+
+            if (d.getNombre_destino() == nombre_lugar)
+            {
+                cout << "destino ya esxiste" << endl;
+
+                lista_act_dest.push_back(d);
+            }
+        }
+
+        cout << "digite fecha ida asi DD-MM-AAAA :";
+        cin >> ida;
+
+        cout << "digite fecha regreso asi DD-MM-AAAA :";
+        cin >> regreso;
+
+        aux_des.setId_Destino(id_destino);
+        aux_des.setNombre_destino(nombre_lugar);
+        aux_des.setFecha_ida(ida);
+        aux_des.setFecha_regreso(regreso);
+
+        cout << "deseas agregar una nueva actividad?: " << endl;
+        cout << "1- si " << endl
+             << "2- no " << endl;
+        cin >> y;
     }
-    persona.setViajes_array(trips);
+
+    //-------------------------------------------------------------------- actividades
+
+    int x = 1;
+
+    while (x = 1)
+    {
+
+        actividades aux; //------------------------ objeto aux
+        int id2 = rand() % 1000 + 1;
+        int dia;
+        string hora;
+        string actividad;
+        aux.setId_Actividad(id2); // id aleatorio
+        cout << "selecciona un dia: " << endl
+             << "1- lunes" << endl
+             << "2- martes" << endl
+             << "3- miercoles" << endl
+             << "4- jueves" << endl
+             << "5- viernes" << endl
+             << "6- sabado" << endl
+             << "7- domingo" << endl;
+        cin >> dia;
+        cout << "digita la hora de tu actividad asi HH:MM : " << endl;
+        cin >> hora;
+        cout << "digita la actividad: " << endl;
+        cin >> actividad;
+
+        aux.setDias(dia);
+        aux.setHoras(hora);
+        aux.setActividad(actividad);
+
+        lista_act_aux.push_back(aux);
+
+        cout << "deseas agregar una nueva actividad?: " << endl;
+        cout << "1- si " << endl
+             << "2- no " << endl;
+        cin >> x;
+    }
+
+    aux_des.setActividades_array(lista_act_aux); // pasar
+    destiny.push_back(aux_des);                  // pasar
+    lista_act_dest.push_back(aux_des);           // pasar
+
+    newViaje.setDestinos_array(lista_act_dest);
+    lista_Act_viaje.push_back(newViaje);
+    trips.push_back(newViaje);
+
+    pp.setViajes_array(lista_Act_viaje);
 };
 
 /*
