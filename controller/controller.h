@@ -9,18 +9,65 @@
 
 list<persona> people;
 list<viaje> trips;
+list<destinos> destiny;
 // map<persona, viaje> peopleTrips;
 
-void crear_viaje(persona &persona)
+void crear_viaje(persona &pp)
 {
 
     viaje newViaje;
     int id = rand() % 1000 + 1;
     newViaje.setId_viaje(id);
 
-    //-------------------------------------------------------------------- actividades
-
     list<actividades> lista_act_aux;
+    list<destinos> lista_act_dest;
+    list<viaje> lista_Act_viaje;
+
+    //-------------------------------------------------------------------- destinos
+
+    int y = 1;
+    destinos aux_des;
+
+    while ((y = 1))
+    {
+
+        int id_destino = rand() % 1000 + 1;
+        string nombre_lugar;
+        string ida;
+        string regreso;
+
+        cout << "digita nombre del destino : ";
+        cin >> nombre_lugar;
+
+        for (destinos &d : destiny)
+        {
+
+            if (d.getNombre_destino() == nombre_lugar)
+            {
+                cout << "destino ya esxiste" << endl;
+
+                lista_act_dest.push_back(d);
+            }
+        }
+
+        cout << "digite fecha ida asi DD-MM-AAAA :";
+        cin >> ida;
+
+        cout << "digite fecha regreso asi DD-MM-AAAA :";
+        cin >> regreso;
+
+        aux_des.setId_Destino(id_destino);
+        aux_des.setNombre_destino(nombre_lugar);
+        aux_des.setFecha_ida(ida);
+        aux_des.setFecha_regreso(regreso);
+
+        cout << "deseas agregar una nueva actividad?: " << endl;
+        cout << "1- si " << endl
+             << "2- no " << endl;
+        cin >> y;
+    }
+
+    //-------------------------------------------------------------------- actividades
 
     int x = 1;
 
@@ -59,7 +106,15 @@ void crear_viaje(persona &persona)
         cin >> x;
     }
 
-    //--------------------------------------------------------------------
+    aux_des.setActividades_array(lista_act_aux); // pasar
+    destiny.push_back(aux_des);                  // pasar
+    lista_act_dest.push_back(aux_des);           // pasar
+
+    newViaje.setDestinos_array(lista_act_dest);
+    lista_Act_viaje.push_back(newViaje);
+    trips.push_back(newViaje);
+
+    pp.setViajes_array(lista_Act_viaje);
 };
 
 /*

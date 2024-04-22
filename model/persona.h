@@ -10,7 +10,7 @@ private:
 
 public:
     persona() {}
-    persona(string nombre_persona) : nombre_persona(nombre_persona) {}
+   // persona(string nombre_persona) : nombre_persona(nombre_persona) {}
 
     int long long getId_persona()
     {
