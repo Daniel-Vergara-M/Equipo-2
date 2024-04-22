@@ -28,7 +28,7 @@ void crear_viaje(persona &pp)
     int y = 1;
     destinos aux_des;
 
-    while ((y = 1))
+    while (y == 1)
     {
 
         int id_destino = rand() % 1000 + 1;
@@ -39,27 +39,27 @@ void crear_viaje(persona &pp)
         cout << "digita nombre del destino : ";
         cin >> nombre_lugar;
 
-        for (destinos &d : destiny)
-        {
-
-            if (d.getNombre_destino() == nombre_lugar)
-            {
-                cout << "destino ya esxiste" << endl;
-
-                lista_act_dest.push_back(d);
-            }
-        }
-
         cout << "digite fecha ida asi DD-MM-AAAA :";
         cin >> ida;
 
         cout << "digite fecha regreso asi DD-MM-AAAA :";
         cin >> regreso;
 
+        for (destinos &d : destiny)
+        {
+
+            if ((d.getNombre_destino() == nombre_lugar) || (d.getFecha_ida() == ida) || (d.getFecha_regreso() == regreso))
+            {
+                cout << "ya existe un destino con ese nombre o fechas iguales" << endl;
+            }
+        }
+
         aux_des.setId_Destino(id_destino);
         aux_des.setNombre_destino(nombre_lugar);
         aux_des.setFecha_ida(ida);
         aux_des.setFecha_regreso(regreso);
+
+        cout << "Destino agregado con exito!" << endl;
 
         cout << "deseas agregar una nueva actividad?: " << endl;
         cout << "1- si " << endl
@@ -71,7 +71,7 @@ void crear_viaje(persona &pp)
 
     int x = 1;
 
-    while (x = 1)
+    while (x == 1)
     {
 
         actividades aux; //------------------------ objeto aux
