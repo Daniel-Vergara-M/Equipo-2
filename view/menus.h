@@ -1,5 +1,7 @@
 #include "../controller/controller.h"
 
+
+
 void menu_principal(persona &p)
 {
     while (true)
@@ -95,11 +97,11 @@ void menu_inicial()
         switch (option)
         {
         case 1:
-            system("cls");
+           // system("cls");
             iniciar_sesion();
             break;
         case 2:
-            system("cls");
+           // system("cls");
             registrarse();
             break;
         case 3:
