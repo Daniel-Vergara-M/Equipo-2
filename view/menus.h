@@ -18,7 +18,7 @@ void menu_principal(persona &p)
         switch (option)
         {
         case 1:
-            system("cls");
+            //system("cls");
             crear_viaje(p);
             break;
         case 2:
