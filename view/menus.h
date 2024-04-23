@@ -2,10 +2,11 @@
 
 
 
-void menu_principal(persona &p)
+void menu_principal(const persona &p)
 {
     while (true)
     {
+        // O(n)
         int option;
 
         cout << "Bienvenido " << p.getNombre_persona() << endl;
@@ -17,13 +18,14 @@ void menu_principal(persona &p)
 
         switch (option)
         {
+            // O(n^3)
         case 1:
             //system("cls");
-            crear_viaje(p);
+            crear_viaje(const_cast<persona &>(p));
             break;
         case 2:
-            system("cls");
-            //  ver_viajes(p);
+            //system("cls");
+            ver_viajes(p);
             break;
         case 3:
             return;
@@ -41,8 +43,9 @@ void iniciar_sesion()
     cout << "ingrese su numero de identificacion: ";
     cin >> id;
 
-    for (persona &p : people)
+    for (const persona& p : people)
     {
+        // O(n)
         if (p.getId_persona() == id)
         {
             menu_principal(p);
@@ -63,8 +66,9 @@ void registrarse()
     cout << "ingrese su numero de identificacion: ";
     cin >> id;
 
-    for (persona &p : people)
+    for (const persona& p : people)
     {
+        // O(n)
         if (p.getId_persona() == id)
         {
             cout << "Usuario ya registrado" << endl;
@@ -74,10 +78,11 @@ void registrarse()
 
     cout << "ingrese su nombre: ";
     cin >> nombre;
+
     aux_persona.setId_persona(id);
     aux_persona.setNombre_persona(nombre);
 
-    people.push_back(aux_persona);
+    people.insert(aux_persona);
 }
 
 void menu_inicial()
@@ -85,6 +90,7 @@ void menu_inicial()
 
     while (true)
     {
+        // O(n)
         int option;
 
         cout << "Bienvenido a la aplicacion de viajes" << endl;
@@ -96,6 +102,7 @@ void menu_inicial()
 
         switch (option)
         {
+            // O(n)
         case 1:
            // system("cls");
             iniciar_sesion();

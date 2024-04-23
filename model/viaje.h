@@ -5,27 +5,27 @@ class viaje : public destinos
 
 private:
     int id_viaje;
-    list<destinos> destinos_array;
+    set<destinos> destinos_array;
 
 public:
     viaje() {}
 
-    void setId_viaje(int newId)
+    void setId_viaje(const int newId)
     {
         id_viaje = newId;
     }
 
-    int getId_viaje()
+    int getId_viaje() const
     {
         return id_viaje;
     }
 
-    void setDestinos_array(list<destinos> newDestinos)
+    void setDestinos_array(const set<destinos> newDestinos)
     {
         destinos_array = newDestinos;
     }
 
-    list<destinos> getDestinos_array()
+    set<destinos> getDestinos_array() const
     {
         return destinos_array;
     }

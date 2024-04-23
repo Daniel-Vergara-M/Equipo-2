@@ -14,43 +14,48 @@ private:
 public:
     actividades() {}
 
-    void setId_Actividad(int newId)
+    void setId_Actividad(const int newId)
     {
         id_Actividad = newId;
     }
 
-    int getId_Actividad()
+    int getId_Actividad() const
     {
         return id_Actividad;
     }
 
-    void setDias(int newDias)
+    void setDias(const int newDias)
     {
         dias = newDias;
     }
 
-    int getDias()
+    int getDias() const
     {
         return dias;
     }
 
-    void setHoras(string horas)
+    void setHoras(const string horas)
     {
         this->hora = horas;
     }
 
-    string getHoras()
+    string getHoras() const
     {
         return hora;
     }
 
-    void setActividad(string actividades)
+    void setActividad(const string actividades)
     {
         this->actividad = actividades;
     }
 
-    string getActividad()
+    string getActividad() const
     {
         return actividad;
+    }
+    
+    bool operator <(const actividades &a) const
+    {
+        return id_Actividad < a.id_Actividad;
     }
 };
