@@ -11,6 +11,11 @@ set<viaje> trips;
 set<destinos> destiny;
 // map<persona, viaje> peopleTrips;
 
+/**
+ * @brief Verifica si una fecha es valida. Posee una complejidad de O(1)
+ * @param date Fecha a verificar
+ * @return true si la fecha es valida, false en caso contrario
+ */
 bool isDateValid(string date)
 {
     if (date.size() != 10)
@@ -26,6 +31,11 @@ bool isDateValid(string date)
     return true;
 }
 
+/**
+ * @brief Verifica si una hora es valida. Posee una complejidad de O(1)
+ * @param time Hora a verificar
+ * @return true si la hora es valida, false en caso contrario
+ */
 bool isTimeValid(string time)
 {
     if (time.size() != 5)
@@ -39,9 +49,13 @@ bool isTimeValid(string time)
     return true;
 }
 
+/**
+ * @brief Crea un viaje para una persona. Posee una complejidad de O(n^3)
+ * @param pp Persona a la que se le creara el viaje
+ * @return void
+ */
 void crear_viaje(persona &pp)
 {
-    // O(n^3)
     viaje newViaje;
     int id = rand() % 1000 + 1;
     newViaje.setId_viaje(id);
@@ -54,7 +68,7 @@ void crear_viaje(persona &pp)
 
     int y = 1;
     destinos aux_des;
-    // O(n^2)
+
     while (y == 1)
     {
 
@@ -109,7 +123,6 @@ void crear_viaje(persona &pp)
     //-------------------------------------------------------------------- actividades
 
     int x = 1;
-    // O(n^2)
     do
     {
 
@@ -161,9 +174,13 @@ void crear_viaje(persona &pp)
     pp.setViajes_array(lista_Act_viaje);
 };
 
+/**
+ * @brief Elimina un viaje de una persona. Posee una complejidad de O(n^3)
+ * @param p Persona a la que se le eliminara el viaje
+ * @return void
+ */
 void ver_viajes(const persona &p)
 {
-    // O(n^3)
     cout << "Tus viajes son: " << endl;
     for (const viaje v : p.getViajes_array())
     {
