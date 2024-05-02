@@ -4,6 +4,7 @@
 #include <algorithm>
 
 #include "../model/persona.h"
+#include <queue>
 
 // set<persona> people;
 
@@ -210,5 +211,24 @@ void ver_viajes(const persona &p)
             lista_destinos.pop();
         }
         lista_viajes.pop();
+    }
+};
+
+void verPersonasConDestino(const destinos &d)
+{
+    cout << "Personas con destino " << d.getNombre_destino() << " son: " << endl;
+
+    for (int i = 0; i < people.size(); i++)
+    {
+        viaje v = trips.top();
+        for (int j = 0; j < v.getDestinos_array().size(); j++)
+        {
+            destinos d1 = v.getDestinos_array().front();
+            if (d1.getNombre_destino() == d.getNombre_destino())
+            {
+                cout << people.top().getNombre_persona() << endl;
+            }
+        }
+        trips.pop();
     }
 };

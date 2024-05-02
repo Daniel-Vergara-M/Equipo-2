@@ -14,7 +14,8 @@ void menu_principal(const persona &p)
         cout << "Bienvenido " << p.getNombre_persona() << endl;
         cout << "1. Crear viaje" << endl;
         cout << "2. Ver viajes" << endl;
-        cout << "3. Salir" << endl;
+        cout << "3. Ver personas con destino en común" << endl;
+        cout << "4. Salir" << endl;
         cout << "Ingrese una opcion: ";
         cin >> option;
 
@@ -26,7 +27,24 @@ void menu_principal(const persona &p)
         case 2:
             ver_viajes(p);
             break;
-        case 3:
+        case 3:{
+            destinos auxDestD;
+            string auxDest;
+            cout << "Ingrese el destino a buscar: ";
+            cin >> auxDest;
+            auxDestD.setNombre_destino(auxDest);
+            for (const destinos &d : destiny)
+            {
+                if (d.getNombre_destino() == auxDest)
+                {
+                    verPersonasConDestino(d);
+                    break;
+                }
+            }
+            cout << "Destino no encontrado" << endl;
+            break;
+        }
+        case 4:
             return;
         default:
             cout << "Opcion no valida" << endl;
