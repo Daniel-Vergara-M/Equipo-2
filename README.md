@@ -24,7 +24,7 @@ La solución propuesta tiene varias ventajas y desventajas que deben ser tenidas
     - El sistema puede no ser capaz de tener en cuenta todas las preferencias y restricciones de los miembros de la familia, lo que puede llevar a un itinerario subóptimo.
 
 ## 4. Complejidad
-La complejidad del sistema propuesto depende en gran medida del número de miembros de la familia y de la cantidad de preferencias y restricciones que tengan. En general, la complejidad del sistema es de O(n^3), donde N es el número de miembros de la familia. Sin embargo, en algunos casos la complejidad puede ser mayor, especialmente si las preferencias y restricciones de los miembros de la familia son muy restrictivas.
+La complejidad del sistema propuesto depende en gran medida del número de miembros de la familia y de la cantidad de preferencias y restricciones que tengan. En general, la complejidad del sistema es de $O(n^2)$, donde $n$ es el número de miembros de la familia. Sin embargo, en algunos casos la complejidad puede ser mayor, especialmente si las preferencias y restricciones de los miembros de la familia son muy restrictivas.
 
 ## 5. Conclusiones
 En general, la solución propuesta es una buena aproximación al problema del sistema de planificación de viajes para una familia. Sin embargo, es importante tener en cuenta las limitaciones y desventajas del sistema, y estar preparado para realizar ajustes si es necesario. En futuras versiones del sistema, se podrían explorar otras técnicas de planificación de viajes y algoritmos de búsqueda para mejorar la eficiencia y la precisión de la solución.
