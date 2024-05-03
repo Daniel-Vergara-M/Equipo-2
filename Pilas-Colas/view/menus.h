@@ -14,6 +14,7 @@ void menu_principal(const persona &p)
         cout << "Bienvenido " << p.getNombre_persona() << endl;
         cout << "1. Crear viaje" << endl;
         cout << "2. Ver viajes" << endl;
+        cout << "3. Ver personas con destino en común" << endl;
         cout << "4. Salir" << endl;
         cout << "Ingrese una opcion: ";
         cin >> option;
@@ -33,7 +34,7 @@ void menu_principal(const persona &p)
             cout << "Ingrese el destino a buscar: ";
             cin >> auxDest;
             auxDestD.setNombre_destino(auxDest);
-            for (int i = 0; i < destiny.size(); i++)
+            for (size_t i = 0; i < destiny.size(); i++)
             {
                 if (destiny.top().getNombre_destino() == auxDest)
                 {
@@ -79,6 +80,38 @@ void iniciar_sesion()
 }
 
 /**
+ * @brief Registra un usuario. Posee una complejidad de O(n)
+ * @return void
+ */
+void registrarse()
+{
+
+    persona aux_persona;
+
+    int long long id;
+    string nombre;
+
+    cout << "ingrese su numero de identificacion: ";
+    cin >> id;
+    for (size_t i = 0; i < people.size(); i++)
+    {
+        if (people.top().getId_persona() == id)
+        {
+            cout << "Usuario ya registrado" << endl;
+            return;
+        }
+        people.pop();
+    }
+    cout << "ingrese su nombre: ";
+    cin >> nombre;
+
+    aux_persona.setId_persona(id);
+    aux_persona.setNombre_persona(nombre);
+
+    people.push(aux_persona);
+}
+
+/**
  * @brief Muestra el menu inicial. Posee una complejidad de O(1)
  * @return void
  */
@@ -89,7 +122,8 @@ void menu_inicial()
         int option;
 
         cout << "1. Iniciar sesion" << endl;
-        cout << "2. Salir" << endl;
+        cout << "2. Registrarse" << endl;
+        cout << "3. Salir" << endl;
         cout << "Ingrese una opcion: ";
         cin >> option;
 
@@ -99,6 +133,9 @@ void menu_inicial()
             iniciar_sesion();
             break;
         case 2:
+            registrarse();
+            break;
+        case 3:
             return;
         default:
             cout << "Opcion no valida" << endl;

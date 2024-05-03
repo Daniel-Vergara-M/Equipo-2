@@ -100,7 +100,7 @@ void crear_viaje(persona &pp)
             return;
         }
 
-        for (int i = 0; i < destiny.size(); i++)
+        for (size_t i = 0; i < destiny.size(); i++)
         {
             if ((destiny.top().getNombre_destino() == nombre_lugar) || (destiny.top().getFecha_ida() == ida) || (destiny.top().getFecha_regreso() == regreso))
             {
@@ -218,10 +218,10 @@ void verPersonasConDestino(const destinos &d)
 {
     cout << "Personas con destino " << d.getNombre_destino() << " son: " << endl;
 
-    for (int i = 0; i < people.size(); i++)
+    for (size_t i = 0; i < people.size(); i++)
     {
         viaje v = trips.top();
-        for (int j = 0; j < v.getDestinos_array().size(); j++)
+        for (size_t j = 0; j < v.getDestinos_array().size(); j++)
         {
             destinos d1 = v.getDestinos_array().front();
             if (d1.getNombre_destino() == d.getNombre_destino())
